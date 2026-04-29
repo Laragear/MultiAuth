@@ -1,0 +1,48 @@
+{
+    "name": "laragear/multi-auth",
+    "description": "Authenticate multiple Composer packages from the same host using different credentials.",
+    "type": "composer-plugin",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Italo Baeza C.",
+            "email": "DarkGhostHunter@Gmail.com",
+            "homepage": "https://github.com/DarkGhostHunter"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/Laragear/Multiauth",
+        "issues": "https://github.com/Laragear/Multiauth/issues"
+    },
+    "require": {
+        "php": "^8.3",
+        "composer-plugin-api": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.5",
+        "mockery/mockery": "^1.6",
+        "composer/composer": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laragear\\MultiAuth\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laragear\\MultiAuth\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --coverage-clover build/logs/clover.xml",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "class": "Laragear\\MultiAuth\\MultiAuthPlugin"
+    }
+}
