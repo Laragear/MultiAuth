@@ -8,16 +8,25 @@
 Authenticate multiple Composer packages from the same host using different credentials.
 
 ```bash
-composer multi-auth:config laragear/pkg license ABC-123
-
-composer multi-auth:config laragear/other-pkg http-basic my-user my-pass
+composer multi-auth:config laragear/web-checkout license ABC-123
 ```
 
 ## Why this package?
 
 Composer natively associates authentication credentials (like HTTP Basic, Bearer tokens, GitHub OAuth) with a single **domain** inside the `auth.json` file. If you have a private package registry serving multiple packages under the same domain (e.g. `keygen.sh` or `github.com`), you cannot easily use different credentials for different packages.
 
-This plugin allows you to define authentication credentials **per-package**, overriding the default domain-based authentication, plus two useful authentication mechanisms.
+This plugin allows you to define authentication credentials **per-package**, overriding the default domain-based authentication, plus two useful authentication mechanisms:
+
+```json
+{
+    "http-basic": {
+        "...": "..."
+    },
+    "laragear/web-checkout": {
+        "license": "$WEBCHECKOUT_LICENSE"
+    }
+}
+```
 
 ## Become a sponsor
 
