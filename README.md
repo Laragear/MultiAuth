@@ -1,7 +1,7 @@
 # Laragear MultiAuth
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/laragear/multi-auth.svg)](https://packagist.org/packages/laragear/multi-auth)
-[![Latest stable test run](https://github.com/Laragear/MultiAuth/actions/workflows/tests.yml/badge.svg)](https://github.com/Laragear/MultiAuth/actions/workflows/tests.yml)
+[![Latest stable test run](https://github.com/Laragear/MultiAuth/actions/workflows/test.yml/badge.svg)](https://github.com/Laragear/MultiAuth/actions/workflows/test.yml)
 [![Codecov coverage](https://codecov.io/gh/Laragear/MultiAuth/graph/badge.svg?token=VNs5caOOpI)](https://codecov.io/gh/Laragear/MultiAuth)
 [![Maintainability](https://qlty.sh/gh/Laragear/projects/MultiAuth/maintainability.svg)](https://qlty.sh/gh/Laragear/projects/MultiAuth)
 
