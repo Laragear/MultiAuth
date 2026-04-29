@@ -21,13 +21,9 @@ class MultiAuthPlugin implements PluginInterface, EventSubscriberInterface, Capa
     protected IOInterface $io;
     protected AuthManager $authManager;
     protected RequestModifier $requestModifier;
-
-    public function __construct(
-        protected Arr $arr,
-        protected Str $str,
-        protected Factory $factory
-    ) {
-    }
+    protected Factory $factory;
+    protected Arr $arr;
+    protected Str $str;
 
     /**
      * @inheritDoc
@@ -36,8 +32,12 @@ class MultiAuthPlugin implements PluginInterface, EventSubscriberInterface, Capa
     {
         $this->composer = $composer;
         $this->io = $io;
+        $this->factory = new Factory();
+
         $this->authManager = $this->factory->makeAuthManager($composer->getConfig());
         $this->requestModifier = $this->factory->makeRequestModifier();
+        $this->arr = $this->factory->makeArr();
+        $this->str = $this->factory->makeStr();
     }
 
     /**

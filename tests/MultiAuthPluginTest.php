@@ -22,7 +22,7 @@ class MultiAuthPluginTest extends TestCase
 
     protected function getPlugin(): MultiAuthPlugin
     {
-        return new MultiAuthPlugin(new Arr(), new Str(), new Factory());
+        return new MultiAuthPlugin();
     }
 
     public function test_plugin_registers_events_and_commands(): void
