@@ -13,17 +13,10 @@ use Laragear\MultiAuth\Support\File;
  */
 class CommandProvider implements CommandProviderCapability
 {
-    /**
-     * Create a new Command Provider instance.
-     */
-    public function __construct(
-        protected Factory $factory,
-        protected Arr $arr,
-        protected Composer $composerHelper,
-        protected File $file,
-    ) {
-        //
-    }
+    protected Factory $factory;
+    protected Arr $arr;
+    protected Composer $composerHelper;
+    protected File $file;
 
     /**
      * @inheritDoc
@@ -31,7 +24,71 @@ class CommandProvider implements CommandProviderCapability
     public function getCommands(): array
     {
         return [
-            $this->factory->makeConfigCommand($this->arr, $this->composerHelper, $this->file),
+            $this->getFactory()->makeConfigCommand($this->getArr(), $this->getComposerHelper(), $this->getFile()),
         ];
+    }
+
+    /**
+     * @return \Laragear\MultiAuth\Factory
+     */
+    public function getFactory(): Factory
+    {
+        return $this->factory ??= new Factory();
+    }
+
+    /**
+     * @param  \Laragear\MultiAuth\Factory  $factory
+     */
+    public function setFactory(Factory $factory): void
+    {
+        $this->factory = $factory;
+    }
+
+    /**
+     * @return \Laragear\MultiAuth\Support\Arr
+     */
+    public function getArr(): Arr
+    {
+        return $this->arr ??= new Arr();
+    }
+
+    /**
+     * @param  \Laragear\MultiAuth\Support\Arr  $arr
+     */
+    public function setArr(Arr $arr): void
+    {
+        $this->arr = $arr;
+    }
+
+    /**
+     * @return \Laragear\MultiAuth\Support\Composer
+     */
+    public function getComposerHelper(): Composer
+    {
+        return $this->composerHelper ??= new Composer();
+    }
+
+    /**
+     * @param  \Laragear\MultiAuth\Support\Composer  $composerHelper
+     */
+    public function setComposerHelper(Composer $composerHelper): void
+    {
+        $this->composerHelper = $composerHelper;
+    }
+
+    /**
+     * @return \Laragear\MultiAuth\Support\File
+     */
+    public function getFile(): File
+    {
+        return $this->file ??= new File();
+    }
+
+    /**
+     * @param  \Laragear\MultiAuth\Support\File  $file
+     */
+    public function setFile(File $file): void
+    {
+        $this->file = $file;
     }
 }
