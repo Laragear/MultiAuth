@@ -6,10 +6,14 @@ use Laragear\MultiAuth\Support\Str;
 
 class RequestModifier
 {
-    public function __construct(
-        protected Str $str
-    ) {
+    /**
+     * Create a new Request Modifier instance.
+     */
+    public function __construct(protected Str $str)
+    {
+        //
     }
+
     /**
      * Build HTTP headers from resolved credentials.
      *
